@@ -3,6 +3,12 @@
  */
 angular.module('theFrameworkVlApp').controller('HomeController',['$location','$scope','$state',
 function homeController($location, $scope, $state){
+    $scope.currentUser = amplify.store('currentUser');
+    $scope.toggleSidebar = function(){
+
+            $('body').toggleClass("hidden-menu");
+
+    }
     $scope.logout = function(){
         $.SmartMessageBox({
             title : "<i class='fa fa-sign-out txt-color-orangeDark'></i> Logout <span class='txt-color-orangeDark'><strong>" + amplify.store('currentUser') + "</strong></span> ?",
